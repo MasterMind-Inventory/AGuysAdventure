@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg0nfymjcu42j"]
+
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_5w04n"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_21g0p"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_cv6al"]
+size = Vector2(0.8, 1.7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05xoj"]
+albedo_color = Color(0.32549, 0.690196, 0.858824, 1)
+
+[node name="Player" type="CharacterBody3D" groups=["CanJump"]]
+input_ray_pickable = false
+script = ExtResource("1_5w04n")
+
+[node name="PlayerHitbox" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_21g0p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_cv6al")
+surface_material_override/0 = SubResource("StandardMaterial3D_05xoj")
+
+[node name="FloorChecker" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.85, 0)
+target_position = Vector3(0, -8, 0)

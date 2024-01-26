@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://1pl0ppmta4u6"]
+
+[ext_resource type="PackedScene" uid="uid://bg0nfymjcu42j" path="res://Scenes/player.tscn" id="1_qtlsq"]
+[ext_resource type="PackedScene" uid="uid://c81qnpmgmv0jo" path="res://Scenes/level.tscn" id="3_7ug64"]
+[ext_resource type="PackedScene" uid="uid://e56ol3y4bjrg" path="res://Scenes/cameraholder.tscn" id="3_exw5a"]
+
+[node name="Main" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("1_qtlsq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10309, 0)
+player_speed = 15
+player_jump_speed = 85
+player_gravity = 8
+
+[node name="Level" parent="." instance=ExtResource("3_7ug64")]
+
+[node name="Light" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.32015, 0.947367, 0, -0.947367, 0.32015, 0, 0, 0)
+
+[node name="Cameraholder" parent="." instance=ExtResource("3_exw5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

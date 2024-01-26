@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c81qnpmgmv0jo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tstua"]
+size = Vector3(30, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ci1go"]
+size = Vector3(30, 0.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nfwi6"]
+albedo_color = Color(0.694118, 0.694118, 0.694118, 1)
+
+[node name="Level" type="StaticBody3D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="LevelHitbox" type="CollisionShape3D" parent="." groups=["Floors"]]
+shape = SubResource("BoxShape3D_tstua")
+
+[node name="LevelMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ci1go")
+surface_material_override/0 = SubResource("StandardMaterial3D_nfwi6")
