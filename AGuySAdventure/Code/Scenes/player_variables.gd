@@ -15,6 +15,3 @@ func update_player_direction():
 		player_direction.x = 1
 	
 	return player_direction
-
-func update_player_screen_pos():
-	pass

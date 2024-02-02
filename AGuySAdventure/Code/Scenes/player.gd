@@ -47,10 +47,13 @@ func floor_check():
 	if floor_checker.is_colliding():
 		var collider = floor_checker.get_collider()
 
-		if collider.is_in_group("Floors"):
+		while collider.is_in_group("Floors"):
 			floor_in_the_way = true
+			
+			if floor_in_the_way == false:
+				break
 	
-		else:
-			floor_in_the_way = false
+	if floor_checker.is_colliding():
+		floor_in_the_way = false
 	
 	return floor_in_the_way
